@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Social Stickers WIP</string>
+    <string name="hello_world">Hello world!</string>
+    
+    <string-array name="drawer_array">
+        <item>Stickers</item>
+        <item>Contacts</item>
+        <item>Share</item>
+        <item>Shop</item>
+        <item>Settings</item>
+    </string-array>
+    
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
+    <string name="action_contacts">Invite Contacts!</string>
+    <string name="app_not_available">Sorry, contacts not available</string>
+
+</resources>
