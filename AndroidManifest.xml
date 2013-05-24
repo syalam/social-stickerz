@@ -7,6 +7,11 @@
     <uses-sdk
         android:minSdkVersion="14"
         android:targetSdkVersion="17" />
+    
+    <!-- Mobile ad networks typically require these permissions in order to fetch contents -->
+    <!-- over the network. -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
     <application
         android:allowBackup="true"
@@ -14,13 +19,17 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.tappforce.socialstickers.MainActivity"
+            android:name="com.tappforce.socialstickerz.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name="com.codinguser.android.contactpicker"
+            android:label="Contact Picker" >
         </activity>
     </application>
 

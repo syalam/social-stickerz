@@ -1,8 +1,9 @@
-package com.tappforce.socialstickers;
+package com.tappforce.socialstickerz;
 
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -19,7 +20,8 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.tappforce.socialstickerz.R;
-import com.tappforce.socialstickers.fragments.ImageGridFragment;
+import com.tappforce.socialstickerz.fragments.ContactsNetworkFragment;
+import com.tappforce.socialstickerz.fragments.ImageGridFragment;
 import com.tappforce.socialstickerz.utils.BaseFragment;
 
 public class MainActivity extends FragmentActivity {
@@ -43,24 +45,7 @@ public class MainActivity extends FragmentActivity {
 		
 		fragmentManager = getSupportFragmentManager();
 		
-		mTitle = mDrawerTitle = getTitle();
-		mMenuTitles = getResources().getStringArray(R.array.drawer_array);
-		mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-		mDrawerList = (ListView) findViewById(R.id.left_drawer);
-		
-		//Set custom shadow that overlays the main content when the drawer opens
-        mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);
-        
-        //Set up the drawer's list view with items and click listener
-        mDrawerList.setAdapter(new ArrayAdapter<String>(this,
-                R.layout.drawer_list_item, mMenuTitles));
-        mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
-        
-        //Enable ActionBar app icon to behave as action to toggle nav drawer
-        getActionBar().setDisplayHomeAsUpEnabled(true);
-        getActionBar().setHomeButtonEnabled(true);
-
-		
+		initDrawerItems();
         
         // ActionBarDrawerToggle ties together the the proper interactions
         // between the sliding drawer and the action bar app icon
@@ -89,7 +74,7 @@ public class MainActivity extends FragmentActivity {
 		
 	}
 
-	/*
+	
 	public void initDrawerItems() {
 		
 		mTitle = mDrawerTitle = getTitle();
@@ -109,10 +94,8 @@ public class MainActivity extends FragmentActivity {
         getActionBar().setDisplayHomeAsUpEnabled(true);
         getActionBar().setHomeButtonEnabled(true);
 
-        
-		
 	}
-	*/
+	
 	
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -151,6 +134,9 @@ public class MainActivity extends FragmentActivity {
         switch(item.getItemId()) {
         case R.id.action_contacts:
         	//TODO bring contacts list for inviting
+        	
+        	initFragment(new ContactsNetworkFragment());
+        	
             Toast.makeText(this, R.string.app_not_available, Toast.LENGTH_LONG).show();
 
         	return true;
@@ -160,7 +146,7 @@ public class MainActivity extends FragmentActivity {
     }
     
 	
-	public void initFragment(BaseFragment fragment) {
+	public void initFragment(Fragment fragment) {
 		FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 		fragmentTransaction.replace(R.id.content_frame, fragment);
 		fragmentTransaction.commit();
@@ -170,7 +156,7 @@ public class MainActivity extends FragmentActivity {
 	
 	public void onDrawerMenuSelection(int position) {
 		
-		BaseFragment baseFragment = null;
+		Fragment baseFragment = null;
 		
 		switch(position) {
 			
