@@ -8,7 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.codinguser.android.contactpicker.ContactsPickerActivity;
+
 import com.tappforce.socialstickerz.R;
 
 public class ContactsNetworkFragment extends ListFragment {
@@ -39,7 +39,9 @@ public class ContactsNetworkFragment extends ListFragment {
 		switch (position) {
 		
 		case 0:
-			startActivityForResult(new Intent(getActivity(), ContactsPickerActivity.class), position);
+			//startActivityForResult(new Intent(getActivity(), ContactsPickerActivity.class), position);
+            Toast.makeText(getActivity(), R.string.app_not_available, Toast.LENGTH_LONG).show();
+
 			break;
 		
 		}

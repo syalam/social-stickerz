@@ -2,6 +2,7 @@ package com.tappforce.socialstickerz.fragments;
 
 import com.google.ads.Ad;
 import com.google.ads.AdListener;
+import com.google.ads.AdRequest;
 import com.google.ads.AdView;
 import com.google.ads.AdRequest.ErrorCode;
 import com.tappforce.socialstickerz.R;
@@ -19,6 +20,8 @@ import android.widget.TextView;
 public class ImageGridFragment extends BaseFragment {
 
 	private TextView mAdStatus;
+	private AdView adView;
+	private AdRequest re;
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -26,7 +29,11 @@ public class ImageGridFragment extends BaseFragment {
 		
 		View view = inflater.inflate(R.layout.gridview_images, container, false);
 		GridView imageGrid = (GridView) view.findViewById(R.id.image_gridView);
-		AdView adView = (AdView) view.findViewById(R.id.ad);
+		adView = (AdView) view.findViewById(R.id.ad);
+		re = new AdRequest();
+		//re.setTesting(true);
+		re.addTestDevice(AdRequest.TEST_EMULATOR);
+		adView.loadAd(re);
 		
 		mAdStatus = (TextView) view.findViewById(R.id.status);
 		
@@ -36,7 +43,17 @@ public class ImageGridFragment extends BaseFragment {
 	}
 	
 	
-    // Receives callbacks on various events related to fetching ads.  In this sample,
+    @Override
+	public void onResume() {
+		super.onResume();
+		
+		
+		
+		
+	}
+
+
+	// Receives callbacks on various events related to fetching ads.  In this sample,
     // the application displays a message on the screen.  A real application may,
     // for example, fill the ad with a banner promoting a feature.
     private class MyAdListener implements AdListener {

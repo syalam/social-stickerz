@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/libs/com.google.ads"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
@@ -8,7 +9,7 @@
     android:id="@+id/image_gridView"
     android:layout_width="match_parent"
     android:layout_height="412dp"
-    android:columnWidth="90dp"
+    android:columnWidth="150dp"
     android:gravity="center"
     android:horizontalSpacing="10dp"
     android:numColumns="3"
@@ -29,7 +30,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:gravity="center_vertical"
-        googleads:adSize="IAB_MRECT"
+        googleads:adSize="BANNER"
         googleads:adUnitId="@string/admob_id" />
 
 </LinearLayout>
